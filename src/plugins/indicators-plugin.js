@@ -250,7 +250,7 @@
         },
         getVirtualMaxSize: function (scrollSize) {
             var s = this.getCurrentSizes();
-            return s.maxScroll === -Infinity ? -scrollSize : (s.virtual ? s.wrapperSize - scrollSize : s.maxScroll);
+            return s.maxScroll === -Infinity ? s.wrapperSize-scrollSize : (s.virtual ? s.wrapperSize - scrollSize : s.maxScroll);
         },
         refresh: function () {
             this.transitionTime(0);
@@ -394,9 +394,11 @@
             });
         },
         _setVirtualScrollSize: function () {
-            var last          = this._positionedSurfacesLast();
-            if (last)
+            //var last          = this._positionedSurfacesLast();
+            if (this.items.length)
+            //if (last)
             {
+                var last = this.items[this.items.length-1];
                 var virtualScroll = last.offset + (this.scrollVertical ? last.height : last.width),
                     virtualSize   = this.scrollVertical ? 'virtualSizeY' : 'virtualSizeX';
 
