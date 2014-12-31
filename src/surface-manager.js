@@ -584,8 +584,8 @@
             }
 
             // Calculate offset per item
-            var offset = this.items[this.items.length-1].offset+
-                this.items[this.items.length-1].width;
+            var offset = this.items.length?(this.items[this.items.length-1].offset+
+                this.items[this.items.length-1].width):0;
 
             var w = document.createElement("div");
             w.style.visibility = "hidden";
