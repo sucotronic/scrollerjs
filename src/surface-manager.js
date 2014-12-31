@@ -505,7 +505,10 @@
                 this.maxScrollY = itemsLeft ? Number.NEGATIVE_INFINITY : size - offset;
                 this.maxScrollY = this.maxScrollY > 0 ? 0 : this.maxScrollY;
             } else {
-                this.maxScrollX = itemsLeft ? Number.NEGATIVE_INFINITY : size - offset;
+                this.maxScrollX = itemsLeft ? 
+                    (-1 * (this.items[this.items.length-1].offset + 
+                           this.items[this.items.length-1].width) + 
+                     this.wrapperWidth) : size - offset;
                 this.maxScrollX = this.maxScrollX > 0 ? 0 : this.maxScrollX;
             }
 
