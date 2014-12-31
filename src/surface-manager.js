@@ -363,7 +363,7 @@
             };
         },
         _updateAllowed: function (current) {
-            return current.pos < 0 && ((this._isScrolling || Math.abs(current.dist) > 10));
+            return this._isScrolling || Math.abs(current.dist) > 10;
         },
         _recycleSurface: function (side) {
             return true;
